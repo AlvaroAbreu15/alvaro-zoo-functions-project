@@ -13,23 +13,12 @@ function countEntrants(entrants) {
   return obj;
 }
 
-const entrants = [
-	{ name:  'Lara Carvalho', age:  5 },
-	{ name:  'Frederico Moreira', age:  5 },
-	{ name:  'Pedro Henrique Carvalho', age:  5 },
-	{ name:  'Maria Costa', age:  18 },
-	{ name:  'Núbia Souza', age:  18 },
-	{ name:  'Carlos Nogueira', age:  50 },
-];
-
 function calculateEntry(entrants) {
   const count = countEntrants(entrants);
-  if(entrants === undefined || (Object.keys(entrants).length === 0)) {
+  if (entrants === undefined || (Object.keys(entrants).length === 0)) {
     return 0;
   }
   return (count.child * 20.99) + (count.adult * 49.99) + (count.senior * 24.99);
 }
-
-console.log(calculateEntry(entrants));
 
 module.exports = { calculateEntry, countEntrants };
