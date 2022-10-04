@@ -24,6 +24,9 @@ const entrants = [
 
 function calculateEntry(entrants) {
   const count = countEntrants(entrants);
+  if(entrants === undefined || (Object.keys(entrants).length === 0)) {
+    return 0;
+  }
   return (count.child * 20.99) + (count.adult * 49.99) + (count.senior * 24.99);
 }
 
