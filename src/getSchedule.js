@@ -1,19 +1,28 @@
 const { species } = require('../data/zoo_data');
 const data = require('../data/zoo_data');
 
+const days = ['Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday'];
+
+const createDayObject = (days) => {
+  
+let object = {};
+   days.forEach((e) => {
+    object[e] = 
+  });
+  return object;
+};
+console.log(createDayObject(days));
+
+
+
+
+
 
 function getSchedule(scheduleTarget) {
 
-  // if(Object.keys(obj).includes(scheduleTarget)) {
-  //  return obj.filter((element) => element[scheduleTarget])
-  // }
-
-  return species.find((e) => e.name === scheduleTarget).availability;  /// OK
-
-  
-  
+  return species.find((e) => e.name === scheduleTarget).availability;  /// OK  
 }
-console.log(getSchedule('lions'));
+
 
 
 module.exports = getSchedule;
