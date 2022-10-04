@@ -1,7 +1,13 @@
+const { employees, species } = require('../data/zoo_data');
 const data = require('../data/zoo_data');
 
 function getOldestFromFirstSpecies(id) {
-  // seu código aqui
+  const animalId = employees.filter((e) => e.id === id)[0].responsibleFor[0];
+
+  const animal = species.find((j) => j.id === animalId).residents;
+  animal.reduce((acc, curr) => 
+  , [])
 }
 
+console.log(getOldestFromFirstSpecies('c5b83cb3-a451-49e2-ac45-ff3f54fbe7e1'));
 module.exports = getOldestFromFirstSpecies;
