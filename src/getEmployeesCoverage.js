@@ -37,14 +37,13 @@ function getEveryObjects() {
 }
 
 function getEmployeesCoverage(arg) {
-  const ids = employees.map((p) => p.id);
-  const n1 = employees.map((m) => m.firstName);
-  const n2 = employees.map((n) => n.lastName);
   if (arg === undefined) {
     const func3 = getEveryObjects();
     return func3;
   }
-  if (ids.includes(arg) === true || n1.includes(arg) === true || n2.includes(arg) === true) {
+  const values = employees.some((el) => el.firstName
+    .includes(arg.name) || el.id.includes(arg.id) || el.lastName.includes(arg.name));
+  if (values === true) {
     const func1 = getNamesAndLocation(arg);
     const func2 = getNames(arg);
     return {
@@ -54,7 +53,7 @@ function getEmployeesCoverage(arg) {
       locations: func1.location,
     };
   }
-  throw Error('Informações inválidas');
+  throw new Error('Informações inválidas');
 }
 
 module.exports = getEmployeesCoverage;
