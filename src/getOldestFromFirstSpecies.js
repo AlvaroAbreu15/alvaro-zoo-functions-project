@@ -9,7 +9,7 @@ function getOldestFromFirstSpecies(id) {
     if (curr.age > acc) {
       return curr.age;
     }
-      return acc;
+    return acc;
   }, []);
 
   const finalObject = animal.filter((el) => el.age === fera)[0];
