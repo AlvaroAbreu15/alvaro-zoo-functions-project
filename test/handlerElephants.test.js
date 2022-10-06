@@ -25,10 +25,10 @@ describe('Testes da função HandlerElephants', () => {
   it('Quando nao passada uma string, a função retorna \'Parâmetro inválido, é necessário uma string\'.', () => {
     expect(handlerElephants(5)).toEqual('Parâmetro inválido, é necessário uma string');
   });
-  it(`Passando por argumento um objeto vazio {} deve retornar a string 'Parâmetro inválido, é necessário uma string'`, () => {
+  it('Passando por argumento um objeto vazio {} deve retornar a string \'Parâmetro inválido, é necessário uma string\'', () => {
     expect(handlerElephants({})).toEqual('Parâmetro inválido, é necessário uma string');
   });
-  it(`Passada uma string que não contempla uma funcionalidade deve retornar null.`, () => {
+  it('Passada uma string que não contempla uma funcionalidade deve retornar null.', () => {
     expect(handlerElephants('string')).toBeNull();
   });
 });
