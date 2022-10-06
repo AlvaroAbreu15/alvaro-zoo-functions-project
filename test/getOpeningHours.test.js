@@ -13,14 +13,33 @@ describe('Testes da função getOpeningHours', () => {
     };
     expect(getOpeningHours()).toEqual(expected);
   });
-  it('Para os argumentos \'Monday\' e \'09:00-AM\', a função deve retornar a string \'The zoo is closed\'.', () => {
-    const expected = 'The zoo is closed';
-    expect(getOpeningHours('Monday', '09:00-AM')).toEqual(expected);
+  it('Sendo os parametros \'Tuesday\' e \'09:00-AM\' a mesma retorna a string \'The zoo is open\'.', () => {
+    const spec4 = 'The zoo is open';
+    expect(getOpeningHours('Tuesday', '09:00-AM')).toEqual(spec4);
   });
-  it('Para os argumentos \'Tuesday\' e \'09:00-AM\' deve retornar a string \'The zoo is open\'.', () => {
-    expect(getOpeningHours('Tuesday', '09:00-AM')).toEqual('The zoo is open');
+  it('Com os argumentos \'Monday\' e \'10:00-AM\', a função assim retorna \'The zoo is closed\'.', () => {
+    const spec1 = 'The zoo is closed';
+    expect(getOpeningHours('Monday', '10:00-AM')).toEqual(spec1);
   });
-  it('Para os argumentos \'Wednesday\' e \'09:00-PM\' deve retornar a string \'The zoo is closed\'.', () => {
-    expect(getOpeningHours('Wednesday', '09:00-PM')).toEqual('The zoo is closed');
+  it('Valores que são contatenado com minusculo e maiusculo, a função retorna o valor normal', () => {
+    expect(getOpeningHours('weDneSdaY', '09:00-PM')).toEqual('The zoo is closed');
+  });
+  it('Os parametros \'Thu\' e \'09:00-AM\' deve retornar uma exceção \'The day must be valid. Example: Monday\'.', () => {
+    expect(() => getOpeningHours('Thu', '09:00-AM')).toThrow('The day must be valid. Example: Monday');
+  });
+  it('Com os argumentos \'Friday\' e \'09:00-ZM\' deve retornar uma exceção \'The abbreviation must be \'AM\' or \'PM\'\'.', () => {
+    expect(() => getOpeningHours('Friday', '09:00-ZM')).toThrow('The abbreviation must be \'AM\' or \'PM\'');
+  });
+  it('Para os argumentos \'Saturday\' e \'C9:00-AM\' deve retornar uma exceção \'The hour should represent a number\'.', () => {
+    expect(() => getOpeningHours('Saturday', 'C9:00-AM')).toThrow('The hour should represent a number');
+  });
+  it('Para os argumentos \'Sunday\' e \'09:c0-AM\' deve retornar uma exceção \'The minutes should represent a number\'.', () => {
+    expect(() => getOpeningHours('Sunday', '09:c0-AM')).toThrow('The minutes should represent a number');
+  });
+  it('Para os argumentos \'Sunday\' e \'13:00-AM\' deve retornar uma exceção \'The hour must be between 0 and 12\'.', () => {
+    expect(() => getOpeningHours('Sunday', '13:00-AM')).toThrow('The hour must be between 0 and 12');
+  });
+  it('Para os argumentos \'Sunday\' e \'10:70-AM\' deve retornar uma exceção \'The minutes must be between 0 and 59\'.', () => {
+    expect(() => getOpeningHours('Sunday', '10:70-AM')).toThrow('The minutes must be between 0 and 59');
   });
 });
